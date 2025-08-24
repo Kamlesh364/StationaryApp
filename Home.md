@@ -3,53 +3,72 @@
 
 ---
 
-## Navigation
-<select id="pageSelector" onchange="showPage()">
-  <option value="page1">Page 1: Product Listing App (MVP)</option>
-  <option value="page2">Page 2: End-Consumer App</option>
-  <option value="page3">Page 3: Admin Dashboard</option>
-</select>
+## 📋 Table of Contents
+- [Overview](#overview)
+- [Page 1: Product Listing App (MVP)](#page-1-product-listing-app-mvp)
+  - [Features](#features)
+  - [Tech Stack](#tech-stack)
+  - [API Endpoints](#api-endpoints)
+  - [Future Scope](#future-scope)
+- [Page 2: End-Consumer App](#page-2-end-consumer-app)
+  - [Features](#features-1)
+  - [Workflow](#workflow)
+  - [Future Scope](#future-scope-1)
+- [Page 3: Admin Dashboard](#page-3-admin-dashboard)
+  - [Features](#features-2)
+  - [Tech Stack](#tech-stack-1)
+  - [Future Scope](#future-scope-2)
+- [Additional Resources](#additional-resources)
 
 ---
 
-<div id="page1" class="page-content">
-# Page 1: Product Listing App (MVP)
-
 ## Overview
+
+This documentation covers the complete ecommerce platform for a Stationery & Sports Store, divided into three main components:
+
+1. **Product Listing App (MVP)** - Initial product browsing functionality
+2. **End-Consumer App** - Full ecommerce platform for customers  
+3. **Admin Dashboard** - Management interface for shop owners
+
+---
+
+## Page 1: Product Listing App (MVP)
+
+### Overview
 The Product Listing App serves as the **first step** toward the full ecommerce platform. It enables users to browse available stationery and sports products online.
 
-## Features
+### Features
 - Display all products in a grid layout
 - Search products by name and filter by category
 - View product details: description, price, stock availability, and image
 - Lightweight and mobile-friendly design
 
-## Tech Stack
+### Tech Stack
 - **Frontend**: React + Tailwind CSS
 - **Backend**: Node.js (Express)
 - **Database**: SQLite/MySQL
 - **Hosting**: Vercel/Netlify (Frontend), Render/Heroku (Backend)
 
-## API Endpoints
+### API Endpoints
 - `GET /api/products` → Fetch all products
 - `GET /api/products/:id` → Fetch single product details
 - `POST /api/products` → Add product (Admin only)
 - `PUT /api/products/:id` → Update product
 - `DELETE /api/products/:id` → Delete product
 
-## Future Scope
+### Future Scope
 - Add cart & checkout flow
 - Integrate payment system
 - Enable product reviews
-</div>
 
-<div id="page2" class="page-content" style="display: none;">
-# Page 2: End-Consumer App
+---
 
-## Overview
+## Page 2: End-Consumer App
+
+### Overview
 The **End-Consumer App** is the ecommerce platform for customers. It provides product discovery, order placement, and delivery/pickup options.
 
-## Features
+### Features
 - **User Authentication** (Register/login with email or phone)
 - **Browse & Search** with filters and sorting
 - **Cart & Checkout** with delivery eligibility (≥ INR 500)
@@ -57,101 +76,62 @@ The **End-Consumer App** is the ecommerce platform for customers. It provides pr
 - **Payments**: Razorpay/UPI integration
 - **Order Tracking & Notifications**
 
-## Workflow
+### Workflow
 1. Customer logs in
 2. Browses catalog, adds items to cart
 3. Chooses delivery or pickup option
 4. Completes payment
 5. Receives confirmation and status updates
 
-## Future Scope
+### Future Scope
 - Loyalty program and discount coupons
 - Personalized recommendations
 - Subscription-based stationery supplies
-</div>
 
-<div id="page3" class="page-content" style="display: none;">
-# Page 3: Admin Dashboard
+---
 
-## Overview
+## Page 3: Admin Dashboard
+
+### Overview
 The **Admin Dashboard** allows shop owners and staff to manage the ecommerce system effectively.
 
-## Features
+### Features
 - **Product Management** (Add/edit/remove products, manage stock levels)
 - **Order Management** (view/update orders, assign delivery agents)
 - **Customer Management** (view customers, manage returns/refunds)
 - **Analytics** (sales reports, popular products, delivery trends)
 
-## Tech Stack
+### Tech Stack
 - **Frontend**: React (Admin template)
 - **Backend**: Shared with consumer app (Node.js/Django REST API)
 - **Database**: Shared product, orders, users schema
 
-## Future Scope
+### Future Scope
 - Advanced reporting with dashboards
 - AI-driven demand forecasting
 - Multi-store management
-</div>
 
 ---
 
-<script>
-function showPage() {
-    const selector = document.getElementById('pageSelector');
-    const selectedPage = selector.value;
-    
-    // Hide all pages
-    const pages = document.querySelectorAll('.page-content');
-    pages.forEach(page => {
-        page.style.display = 'none';
-    });
-    
-    // Show selected page
-    const selectedPageElement = document.getElementById(selectedPage);
-    if (selectedPageElement) {
-        selectedPageElement.style.display = 'block';
-    }
-}
+## Additional Resources
 
-// Initialize with first page
-document.addEventListener('DOMContentLoaded', function() {
-    showPage();
-});
-</script>
+### Project Files
+- [Delivery Pickup Flow Diagram](Delivery_Pickup_Flow.png)
+- [Project Presentation](Ecommerce_Stationery_Sports_Presentation.pdf)
+- [Project Report](Ecommerce_Stationery_Sports_Report.pdf)
 
-<style>
-select {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: white;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
+### Development Phases
+1. **Phase 1**: Product Listing App (MVP) - Basic product browsing
+2. **Phase 2**: End-Consumer App - Full ecommerce functionality
+3. **Phase 3**: Admin Dashboard - Management interface
 
-.page-content {
-    border-top: 1px solid #eee;
-    padding-top: 20px;
-}
+### Key Technologies
+- **Frontend**: React.js, Tailwind CSS
+- **Backend**: Node.js/Express or Django
+- **Database**: MySQL/PostgreSQL
+- **Payment**: Razorpay integration
+- **Hosting**: Vercel, Netlify, Render
 
-.page-content h1 {
-    color: #2c3e50;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
+---
 
-.page-content h2 {
-    color: #2c3e50;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-
-.page-content ul {
-    margin-bottom: 15px;
-}
-
-.page-content li {
-    margin-bottom: 5px;
-}
-</style>
+*Last updated: December 2024*
